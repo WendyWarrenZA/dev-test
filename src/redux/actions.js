@@ -20,7 +20,7 @@ export function getCommitCounts(url, timespan) {
             default:
                 break;
         }        
-		return getCommitCountsFromGithub(`${apiEndPoint}?owner=${owner}&repo=${repo}&since=${since}&until=${until}`).then(response => {			
+		return getCommitCountsFromGithub(`${apiEndPoint}?owner=${owner}&repo=${repo}&since=${since}&until=${until}&interval=${timespan}`).then(response => {			
 			dispatch(receiveCommitCounts(response));
 		});
 	};

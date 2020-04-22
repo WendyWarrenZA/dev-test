@@ -7,12 +7,19 @@ class InputForm extends React.Component {
         super(props);
         this.state = {
             url:'https://github.com/facebook/react/',
-            timespan:'day'
+            timespan:'day',
+            loading: false
         }
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleButtonClick = this.handleButtonClick.bind(this);
         this.handleTimespanChange = this.handleTimespanChange.bind(this);
     }
+
+    componentWillReceiveProps(nextProps) {        
+        this.setState({
+              loading: (nextProps.tableData == null || nextProps.tableData.length === 0)
+        });
+  }
 
     handleInputChange(event) {
         this.setState({url: event.target.value});
@@ -22,7 +29,8 @@ class InputForm extends React.Component {
         this.setState({timespan: event.target.value});
     }
 
-    handleButtonClick(event) {        
+    handleButtonClick(event) {                
+        this.setState({loading: true});
         this.props.getCommitCounts(this.state.url, this.state.timespan);
         event.preventDefault();
     }
@@ -40,9 +48,16 @@ class InputForm extends React.Component {
                 </select>
                 <br/><br/>
                 <button className="btn" onClick={this.handleButtonClick}>Update Stats</button>
+                { this.state.loading ? <span>Loading...</span> : null }
             </div>
         );
     }
 }
 
-export default connect(	null, { getCommitCounts })(InputForm);
+function mapStateToProps(state) {	
+	return {
+        tableData: state.commitCounts,              
+	};
+}
+
+export default connect(	mapStateToProps, { getCommitCounts })(InputForm);

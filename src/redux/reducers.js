@@ -6,13 +6,12 @@ function commitCounts(state = null, action) {
 		case FETCH_COMMIT_COUNTS:
 			return action;
         case RECEIVE_COMMIT_COUNTS:    
-        var result = [];
-        for(var i in action.data){
-            if (action.data[i] > 0){
-                result.push([i, action.data[i]]);
-            }
-        }
-        console.log('result', result);        
+            var result = [];
+            for(var i in action.data){
+                if (action.data[i] > 0){
+                    result.push([i, action.data[i]]);
+                }
+            }              
 			return result;
 		default:
 			return state;
@@ -21,6 +20,6 @@ function commitCounts(state = null, action) {
 
 const rootReducer = combineReducers({
     commitCounts
-  })
+})
   
 export default rootReducer
