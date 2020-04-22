@@ -26,10 +26,10 @@
     padding: 0;
     border: 0;
     margin-right: 20px;
-    &:hover {
-      color: #000;
-      background: transparent;
-    }
+}
+btn:hover {
+  color: #000;
+  background: transparent;    
 }
 
 .graph{

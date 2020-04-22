@@ -2,7 +2,7 @@ import React from 'react';
 import InputForm from './components/inputForm';
 import ResultsTable from './components/resultsTable';
 import ResultsGraph from './components/resultsGraph';
-import './App.scss';
+import './App.css';
 
 class App extends React.Component {
   render() {
