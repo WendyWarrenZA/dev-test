@@ -3,6 +3,8 @@ Dev Test is a project that displays the number of commits per user for a given r
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
+If this is the first time you are running the project, in the project directory please run: 
+### `npm install .`
 
 In the project directory, you can run:
 
