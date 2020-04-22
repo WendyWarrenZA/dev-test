@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getCommitCounts } from '../redux/actions';
 
@@ -19,7 +20,7 @@ class InputForm extends React.Component {
         this.setState({
               loading: (nextProps.tableData == null || nextProps.tableData.length === 0)
         });
-  }
+    }
 
     handleInputChange(event) {
         this.setState({url: event.target.value});
@@ -53,6 +54,10 @@ class InputForm extends React.Component {
         );
     }
 }
+
+InputForm.propTypes = {	
+	tableData: PropTypes.array
+};
 
 function mapStateToProps(state) {	
 	return {

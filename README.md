@@ -1,3 +1,5 @@
+Dev Test is a project that displays the number of commits per user for a given repository and timeframe.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
